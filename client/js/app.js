@@ -3,23 +3,23 @@ function getRRKList(success, error) {
   force.query(soql, success, error);
 }
 
-function getSessionDetails(sessionId, success, error) {
-  var soql = "SELECT Session__r.Name, " +
-  "Session__r.Session_Date__c, " +
-  "Speaker__r.First_Name__c, " +
-  "Speaker__r.Last_Name__c " +
-  "FROM Session_Speaker__c " +
-  "WHERE Session__r.Id = '" + sessionId + "'";
+function getRRKDetails(rrkid, success, error) {
+  var soql = "SELECT Id, " +
+  "Name, " +
+  "RRK_NM__c, " +
+  "RRK_SEIKYU__c " +
+  "FROM RRK__c " +
+  "WHERE Id = '" + rrkid + "'";
   force.query(soql, success, error);
 }
 
 function showRRKList() {
     getRRKList(
         function (data) {
-            var sessions = data.records,
+            var rrks = data.records,
                 html = '';
-            for (var i=0; i<sessions.length; i++) {
-                html += '<li class="table-view-cell"><a href="#sessions/'+ sessions[i].Id +'">' + sessions[i].Name + '</a></li>';
+            for (var i=0; i<rrks.length; i++) {
+                html += '<li class="table-view-cell"><a href="#connectTables/'+ rrks[i].Id +'">' + rrks[i].Name + '</a></li>';
             }
             html =
                 '<div class="page">' +
@@ -38,11 +38,11 @@ function showRRKList() {
     return false;
 }
 
-function showSessionDetails(sessionId) {
+function showRRKDetails(rrkid) {
 
-    getSessionDetails(sessionId,
+    getRRKDetails(rrkid,
         function (data) {
-            var session = data.records[0],
+            var rrk = data.records[0],
             html =
                 '<div class="page">' +
                 '<header class="bar bar-nav">' +
@@ -53,14 +53,14 @@ function showSessionDetails(sessionId) {
                     '<div class="card">' +
                         '<ul class="table-view">' +
                             '<li class="table-view-cell">' +
-                                '<h4>' + session.Session__r.Name + '</h4>' +
-                                '<p>' + (session.Session__r.Session_Date__c || 'No time yet')+ '</p>' +
+                                '<h4>' + rrk.Name + '</h4>' +
+                                '<p>' + (rrk.Id || 'No time yet')+ '</p>' +
                             '</li>' +
                             '<li class="table-view-cell">Speaker: ' +
-                                session.Speaker__r.First_Name__c +
+                                rrk.RRK_NM__c +
                             '</li>' +
                             '<li class="table-view-cell">' +
-                                (session.Session__r.Description__c || 'No description yet') +
+                                (rrk.RRK_SEIKYU__c || 'No description yet') +
                             '</li>' +
                         '</ul>' +
                     '</div>' +
@@ -76,4 +76,4 @@ function showSessionDetails(sessionId) {
 
 var slider = new PageSlider($('body')); // Initialize PageSlider micro-library for nice and hardware-accelerated page transitions
 router.addRoute('', showRRKList);
-router.addRoute('sessions/:id', showSessionDetails);
+router.addRoute('sessions/:id', showRRKDetails);
