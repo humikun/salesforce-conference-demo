@@ -19,7 +19,7 @@ function showRRKList() {
             var rrks = data.records,
                 html = '';
             for (var i=0; i<rrks.length; i++) {
-                html += '<li class="table-view-cell"><a href="#connectTables/'+ rrks[i].Id +'">detail:' + rrks[i].Name + '</a></li>';
+                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">detail:' + rrks[i].Name + '</a></li>';
             }
             html =
                 '<div class="page">' +
