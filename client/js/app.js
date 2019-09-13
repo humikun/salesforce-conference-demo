@@ -76,4 +76,4 @@ function showRRKDetails(rrkid) {
 
 var slider = new PageSlider($('body')); // Initialize PageSlider micro-library for nice and hardware-accelerated page transitions
 router.addRoute('', showRRKList);
-router.addRoute('sessions/:id', showRRKDetails);
+router.addRoute('rrkid/:id', showRRKDetails);
