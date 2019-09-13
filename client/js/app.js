@@ -65,6 +65,7 @@ function showRRKDetails(rrkid) {
                                 (rrk.RRK_SEIKYU__c || 'No request yet') +
                             '</li>' +
                         '</ul>' +
+                        '<a href="#kbid/'+ rrk.Id +'">>>to koban:' + '</a>' +
                     '</div>' +
                 '</div>' +
                 '</div>';
