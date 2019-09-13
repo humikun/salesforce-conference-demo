@@ -78,7 +78,7 @@ function showRRKDetails(rrkid) {
 }
 
 function getKBList(success, error) {
-  var soql = "SELECT Id, Name, CNN_RRK__c,KB_LN_SUB_NUM__c,CNN_RRK__c, KB_sub_cnn_rrk__r.name FROM KOBAN__c";
+  var soql = "SELECT Id, Name, CNN_RRK__c,KB_LN_SUB_NUM__c,CNN_RRK__c, CNN_RRK__.name FROM KOBAN__c";
   force.query(soql, success, error);
 }
 
