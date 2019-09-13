@@ -1,5 +1,5 @@
-function getSessionList(success, error) {
-  var soql = "SELECT Session__r.Id, Session__r.Name FROM Session_Speaker__c";
+function getRRKList(success, error) {
+  var soql = "Select Id, Name, RRK_NM__c, RRK_SEIKYU__c, RRK_KISHU__c, RRK_KYOTEN__c From RRK__c Where RRK_ANKEJOTAI__c = '技術承認'";
   force.query(soql, success, error);
 }
 
@@ -13,18 +13,18 @@ function getSessionDetails(sessionId, success, error) {
   force.query(soql, success, error);
 }
 
-function showSessionList() {
-    getSessionList(
+function showRRKList() {
+    getRRKList(
         function (data) {
             var sessions = data.records,
                 html = '';
             for (var i=0; i<sessions.length; i++) {
-                html += '<li class="table-view-cell"><a href="#sessions/'+ sessions[i].Session__r.Id +'">' + sessions[i].Session__r.Name + '</a></li>';
+                html += '<li class="table-view-cell"><a href="#sessions/'+ sessions[i].Id +'">' + sessions[i].Name + '</a></li>';
             }
             html =
                 '<div class="page">' +
                 '<header class="bar bar-nav">' +
-                    '<h1 class="title">Sessions</h1>' +
+                    '<h1 class="title">RRK</h1>' +
                 '</header>' +
                 '<div class="content">' +
                     '<ul class="table-view session-list">' + html + '</ul>' +
@@ -75,5 +75,5 @@ function showSessionDetails(sessionId) {
 }
 
 var slider = new PageSlider($('body')); // Initialize PageSlider micro-library for nice and hardware-accelerated page transitions
-router.addRoute('', showSessionList);
+router.addRoute('', showRRKList);
 router.addRoute('sessions/:id', showSessionDetails);
