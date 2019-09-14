@@ -115,6 +115,7 @@ function showKBList() {
         function (error) {
             alert("Error: " + JSON.stringify(error));
         });
+  
     return false;
 }
 
