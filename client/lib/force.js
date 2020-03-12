@@ -4,7 +4,7 @@
  * Version: 0.4
  */
 var force = (function () {
-
+    console.log('-------------------------------------force-------------------------------------')
     "use strict";
 
     var loginURL = 'https://login.salesforce.com',
@@ -166,7 +166,13 @@ var force = (function () {
             loginURL = params.loginURL || loginURL;
             oauthCallbackURL = params.oauthCallbackURL || oauthCallbackURL;
             proxyURL = params.proxyURL || proxyURL;
-
+            console.log('appId:'+appId);
+            console.log('apiVersion:'+apiVersion);
+            console.log('tokenStore:'+tokenStore);
+            console.log('loginURL:'+loginURL);
+            console.log('oauthCallbackURL:'+oauthCallbackURL);
+            console.log('proxyURL:'+proxyURL);
+            
             if (params.accessToken) {
                 if (!oauth) oauth = {};
                 oauth.access_token = params.accessToken;
@@ -499,7 +505,7 @@ var force = (function () {
             errorHandler
         );
     }
-
+    console.log('-------------------------------------force-------------------------------------')
     // The public API
     return {
         init: init,
