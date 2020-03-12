@@ -13,13 +13,15 @@ var router = (function () {
     }
 
     function start() {
-
+        console.log('--------------------------------------rooter=>start--------------------------------------')
         var path = window.location.hash.substr(1),
             parts = path.split('/'),
             partsLength = parts.length;
-
+        
+        console.log('window.location.hash:'+window.location.hash)
         for (var i = 0; i < routes.length; i++) {
             var route = routes[i];
+            console.log('route:['+i+']'+route.tostring())
             if (route.parts.length === partsLength) {
                 var params = [];
                 for (var j = 0; j < partsLength; j++) {
@@ -35,6 +37,7 @@ var router = (function () {
                 }
             }
         }
+        console.log('--------------------------------------rooter=>start--------------------------------------')
     }
 
     $(window).on('hashchange', start);
