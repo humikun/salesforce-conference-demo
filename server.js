@@ -1,4 +1,4 @@
-console.log('server.js');
+console.log('-----------------------------------server.js-----------------------------------');
 var express = require('express'),
     request = require('request'),
     bodyParser = require('body-parser'),
@@ -36,4 +36,4 @@ app.set('port', process.env.PORT || 8200);
 app.listen(app.get('port'), function () {
     console.log('Proxy server listening on port ' + app.get('port'));
 });
-console.log('server.js');
+console.log('-----------------------------------server.js-----------------------------------');
