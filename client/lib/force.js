@@ -11,7 +11,7 @@ var force = (function () {
 
     // The Connected App client Id. Default app id provided - Not for production use.
         appId = '3MVG9fMtCkV6eLheIEZplMqWfnGlf3Y.BcWdOf1qytXo9zxgbsrUbS.ExHTgUPJeb3jZeT8NYhc.hMyznKU92',
-
+        // appId = '3MVG9n_HvETGhr3Culk42Wpqn4jP9dkxHxW2F5EZtURzUz4Kb5K66fz_TDBj0gw8bJ4i4chlWTfmBs6wLEWBB',
     // The force.com API version to use. Default can be overriden in login()
         apiVersion = 'v32.0',
 
@@ -151,8 +151,9 @@ var force = (function () {
      *  refreshToken (optional)
      */
     function init(params) {
-
-        console.log(params);
+        console.log('***************[force]***************')
+        console.log('method:['+'init'+']:start-->')
+        console.log('params:'+params);
 
         // Load previously saved token
         if (tokenStore.forceOAuth) {
@@ -188,7 +189,7 @@ var force = (function () {
                 oauth.refresh_token = params.refreshToken;
             }
         }
-
+        console.log('<--method:['+'init'+']:end')
     }
 
     /**
@@ -204,7 +205,9 @@ var force = (function () {
      * @param url - The oauthRedictURL called by Salesforce at the end of the OAuth workflow. Includes the access_token in the querystring
      */
     function oauthCallback(url) {
-
+        console.log('***************[force]***************')
+        console.log('method:['+'oauthCallback'+']:start-->')
+        console.log('url:'+url)
         // Parse the OAuth data received from Facebook
         var queryString,
             obj;
@@ -228,6 +231,7 @@ var force = (function () {
                 loginErrorHandler({status: 'access_denied'});
             }
         }
+        console.log('<--method:['+'oauthCallback'+']:end')
     }
 
     /**
@@ -237,14 +241,19 @@ var force = (function () {
      * @param errorHandler - function to call back when login fails
      */
     function login(successHandler, errorHandler) {
+        console.log('***************[force]***************')
+        console.log('method:['+'login'+']:start-->')
         if (window.cordova) {
             loginWithPlugin(successHandler, errorHandler);
         } else {
             loginWithBrowser(successHandler, errorHandler);
         }
+        console.log('<--method:['+'inloginit'+']:end')
     }
 
     function loginWithPlugin(successHandler, errorHandler) {
+        console.log('***************[force]***************')
+        console.log('method:['+'loginWithPlugin'+']:start-->')
         document.addEventListener("deviceready", function () {
             oauthPlugin = cordova.require("com.salesforce.plugin.oauth");
             if (!oauthPlugin) {
@@ -265,9 +274,12 @@ var force = (function () {
                 }
             );
         }, false);
+        console.log('<--method:['+'loginWithPlugin'+']:end')
     }
 
     function loginWithBrowser(successHandler, errorHandler) {
+        console.log('***************[force]***************')
+        console.log('method:['+'loginWithBrowser'+']:start-->')
         console.log('loginURL: ' + loginURL);
         console.log('oauthCallbackURL: ' + oauthCallbackURL);
 
@@ -275,7 +287,12 @@ var force = (function () {
             oauthCallbackURL + '&response_type=token';
         loginSuccessHandler = successHandler;
         loginErrorHandler = errorHandler;
+        console.log('loginWindowURL:'+loginWindowURL)
+        loginWindowURL = 'https://zangwenk-lightning-dev-ed.my.salesforce.com/'+'services/oauth2/authorize?'+
+                         'client_id=3MVG9n_HvETGhr3Culk42Wpqn4jP9dkxHxW2F5EZtURzUz4Kb5K66fz_TDBj0gw8bJ4i4chlWTfmBs6wLEWBB'+
+                         '&redirect_uri=https://awesome-conference-new-9999.herokuapp.com/oauthcallback.html&response_type=token'
         window.open(loginWindowURL, '_blank', 'location=no');
+        console.log('<--method:['+'loginWithBrowser'+']:end')
     }
 
     /**
