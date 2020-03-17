@@ -213,6 +213,8 @@ var force = (function () {
             obj;
 
         if (url.indexOf("access_token=") > 0) {
+            console.log('access_token');
+            
             queryString = url.substr(url.indexOf('#') + 1);
             obj = parseQueryString(queryString);
             oauth = obj;
@@ -221,12 +223,15 @@ var force = (function () {
                 loginSuccessHandler();
             }
         } else if (url.indexOf("error=") > 0) {
+            console.log('access_token_error');
             queryString = decodeURIComponent(url.substring(url.indexOf('?') + 1));
             obj = parseQueryString(queryString);
             if (loginErrorHandler) {
                 loginErrorHandler(obj);
             }
         } else {
+            console.log('access_token_others');
+
             if (loginErrorHandler) {
                 loginErrorHandler({status: 'access_denied'});
             }
