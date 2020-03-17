@@ -5,6 +5,8 @@
 
 function PageSlider(container) {
 
+    console.log('***************start[pageslider.js]start***************')
+    
     'use strict';
 
     var currentPage,
@@ -16,7 +18,9 @@ function PageSlider(container) {
 
     // Use this function if you want PageSlider to automatically determine the sliding direction based on the state history
     this.slidePage = function (page) {
-
+        console.log('method:['+'slidePage'+']:start-->')
+        console.log('page:'+page);
+        
         var l = stateHistory.length,
             state = window.location.hash;
 
@@ -32,7 +36,7 @@ function PageSlider(container) {
             stateHistory.push(state);
             this.slidePageFrom(page, 'right');
         }
-
+        console.log('<--method:['+'slidePage'+']:end')
     };
 
     // Use this function directly if you want to control the sliding direction outside PageSlider
@@ -64,5 +68,5 @@ function PageSlider(container) {
         currentPage.attr("class", "page transition " + (from === "left" ? "right" : "left"));
         currentPage = page;
     };
-
+    console.log('***************end[pageslider.js]end***************')
 }
