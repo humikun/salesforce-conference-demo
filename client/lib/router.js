@@ -5,23 +5,29 @@ var router = (function () {
     var routes = [];
 
     function addRoute(route, handler) {
+        console.log('***************[router]***************')
+        console.log('method:['+'addRoute'+']:start-->')
         routes.push({parts: route.split('/'), handler: handler});
+        console.log('<--method:['+'addRoute'+']:end')
     }
 
     function load(route) {
+        console.log('***************[router]***************')
+        console.log('method:['+'load'+']:start-->')
         window.location.hash = route;
+        console.log('<--method:['+'addRoute'+']:end')
     }
 
     function start() {
-        console.log('--------------------------------------rooter=>start--------------------------------------')
+        console.log('***************[router]***************')
+        console.log('method:['+'start'+']:start-->')
+        console.log('window.location.hash:'+window.location.hash)
         var path = window.location.hash.substr(1),
             parts = path.split('/'),
             partsLength = parts.length;
-        
-        console.log('window.location.hash:'+window.location.hash)
+
         for (var i = 0; i < routes.length; i++) {
             var route = routes[i];
-            console.log('route:['+i+']'+route)
             if (route.parts.length === partsLength) {
                 var params = [];
                 for (var j = 0; j < partsLength; j++) {
@@ -37,7 +43,7 @@ var router = (function () {
                 }
             }
         }
-        console.log('--------------------------------------rooter=>start--------------------------------------')
+        console.log('<--method:['+'start'+']:end')
     }
 
     $(window).on('hashchange', start);
