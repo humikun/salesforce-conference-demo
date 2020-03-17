@@ -50,7 +50,9 @@ function PageSlider(container) {
         page.attr("class", "page " + from);
 
         // Bingding Matched Dom event to currentPage
+        // once webkit transition end, target will be deleted
         currentPage.one('webkitTransitionEnd', function (e) {
+            // delete target
             $(e.target).detach();
         });
 
