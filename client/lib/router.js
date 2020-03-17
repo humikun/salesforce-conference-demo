@@ -21,7 +21,7 @@ var router = (function () {
         console.log('window.location.hash:'+window.location.hash)
         for (var i = 0; i < routes.length; i++) {
             var route = routes[i];
-            console.log('route:['+i+']'+route.tostring())
+            console.log('route:['+i+']'+route)
             if (route.parts.length === partsLength) {
                 var params = [];
                 for (var j = 0; j < partsLength; j++) {
