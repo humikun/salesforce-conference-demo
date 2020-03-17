@@ -49,6 +49,7 @@ function PageSlider(container) {
         // Position the page at the starting position of the animation
         page.attr("class", "page " + from);
 
+        // Bingding Matched Dom event to currentPage
         currentPage.one('webkitTransitionEnd', function (e) {
             $(e.target).detach();
         });
