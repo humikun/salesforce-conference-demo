@@ -120,6 +120,6 @@ function showKBList() {
 
 
 var slider = new PageSlider($('body')); // Initialize PageSlider micro-library for nice and hardware-accelerated page transitions
-router.addRoute('rrkid/:id', showRRKList);
+router.addRoute('', showRRKList);
 router.addRoute('rrkid/:id', showRRKDetails);
 router.addRoute('kbid/:id', showKBList);
