@@ -1,14 +1,13 @@
 function getRRKList(success, error) {
-  var soql = "Select Id, Name, RRK_NM__c, RRK_SEIKYU__c, RRK_KISHU__c, RRK_KYOTEN__c From RRK__c Where RRK_ANKEJOTAI__c = '技術承認'";
+//   var soql = "Select Id, Name, RRK_NM__c, RRK_SEIKYU__c, RRK_KISHU__c, RRK_KYOTEN__c From RRK__c Where RRK_ANKEJOTAI__c = '技術承認'";
+  var soql = "SELECT Id,Name FROM job__c";
   force.query(soql, success, error);
 }
 
 function getRRKDetails(rrkid, success, error) {
   var soql = "SELECT Id, " +
   "Name, " +
-  "RRK_NM__c, " +
-  "RRK_SEIKYU__c " +
-  "FROM RRK__c " +
+  "FROM job__c " +
   "WHERE Id = '" + rrkid + "'";
   force.query(soql, success, error);
 }
@@ -20,8 +19,8 @@ function showRRKList() {
                 html = '';
             for (var i=0; i<rrks.length; i++) {
                 html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">名称:' + rrks[i].Name + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">案件状態:' + rrks[i].RRK_ANKEJOTAI__c + '</a></li>';
-                html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">拠点:' + rrks[i].RRK_KYOTEN__c + '</a></li>';
+//                 html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">案件状態:' + rrks[i].RRK_ANKEJOTAI__c + '</a></li>';
+//                 html += '<li class="table-view-cell"><a href="#rrkid/'+ rrks[i].Id +'">拠点:' + rrks[i].RRK_KYOTEN__c + '</a></li>';
             }
             html =
                 '<div class="page">' +
