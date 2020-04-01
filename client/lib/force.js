@@ -293,9 +293,9 @@ var force = (function () {
         loginSuccessHandler = successHandler;
         loginErrorHandler = errorHandler;
         console.log('loginWindowURL:'+loginWindowURL)
-        loginWindowURL = 'https://zangwenk-lightning-dev-ed.my.salesforce.com/'+'services/oauth2/authorize?'+
-                         'client_id=3MVG9n_HvETGhr3Culk42Wpqn4jP9dkxHxW2F5EZtURzUz4Kb5K66fz_TDBj0gw8bJ4i4chlWTfmBs6wLEWBB'+
-                         '&redirect_uri=https://awesome-conference-new-9999.herokuapp.com/oauthcallback.html&response_type=token'
+//         loginWindowURL = 'https://zangwenk-lightning-dev-ed.my.salesforce.com/'+'services/oauth2/authorize?'+
+//                          'client_id=3MVG9n_HvETGhr3Culk42Wpqn4jP9dkxHxW2F5EZtURzUz4Kb5K66fz_TDBj0gw8bJ4i4chlWTfmBs6wLEWBB'+
+//                          '&redirect_uri=https://awesome-conference-new-9999.herokuapp.com/oauthcallback.html&response_type=token'
         window.open(loginWindowURL, '_blank', 'location=no');
         console.log('<--method:['+'loginWithBrowser'+']:end')
     }
