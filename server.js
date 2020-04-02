@@ -3,8 +3,8 @@ var express = require('express'),
     request = require('request'),
     bodyParser = require('body-parser'),
     app = express(),
-
-    appId = process.env.APP_ID;
+    appId = process.env.APP_ID,
+    oauthCallbackUrl = process.env.oauthCallbackURL;
 
 
 
