@@ -296,7 +296,7 @@ var force = (function () {
         console.log('loginWindowURL:'+loginWindowURL)
 //         loginWindowURL = 'https://zwk-playful-moose-388230-dev-ed.my.salesforce.com/'+
 //         　　　　　　　　　 'services/oauth2/authorize?'+
-//                          'client_id=3MVG9G9pzCUSkzZtImRejMUqCEcHwnMhr22SJs69sUeud2Z6Vx9NI8OsUeDkbJ0IS9mFBLyHOyA=='+
+//                          'client_id=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'+
 //                          '&redirect_uri=https://awesome-conference-new-9999.herokuapp.com/oauthcallback.html&response_type=token'
         window.open(loginWindowURL, '_blank', 'location=no');
         console.log('<--method:['+'loginWithBrowser'+']:end')
