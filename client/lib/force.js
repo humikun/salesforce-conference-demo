@@ -10,9 +10,8 @@ var force = (function () {
     var loginURL = 'https://login.salesforce.com',
 
     // The Connected App client Id. Default app id provided - Not for production use.
-//         appId = '3MVG9fMtCkV6eLheIEZplMqWfnGlf3Y.BcWdOf1qytXo9zxgbsrUbS.ExHTgUPJeb3jZeT8NYhc.hMyznKU92',
-        appId = '3MVG9G9pzCUSkzZtImRejMUqCEcHwnMhr22SJs69sUeud2Z6Vx9NI8OsUeDkbJ0IS9mFBLyHOyA==', // MyConference2
-        // appId = '3MVG9n_HvETGhr3Culk42Wpqn4jP9dkxHxW2F5EZtURzUz4Kb5K66fz_TDBj0gw8bJ4i4chlWTfmBs6wLEWBB',
+        appId = '', // MyConference2
+        // appId = 'env.appId',
     // The force.com API version to use. Default can be overriden in login()
         apiVersion = 'v32.0',
 
