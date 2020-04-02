@@ -10,7 +10,8 @@ var force = (function () {
     var loginURL = 'https://login.salesforce.com',
 
     // The Connected App client Id. Default app id provided - Not for production use.
-        appId = '3MVG9fMtCkV6eLheIEZplMqWfnGlf3Y.BcWdOf1qytXo9zxgbsrUbS.ExHTgUPJeb3jZeT8NYhc.hMyznKU92',
+//         appId = '3MVG9fMtCkV6eLheIEZplMqWfnGlf3Y.BcWdOf1qytXo9zxgbsrUbS.ExHTgUPJeb3jZeT8NYhc.hMyznKU92',
+        appId = '3MVG9G9pzCUSkzZtImRejMUqCEcHwnMhr22SJs69sUeud2Z6Vx9NI8OsUeDkbJ0IS9mFBLyHOyA==' // MyConference2
         // appId = '3MVG9n_HvETGhr3Culk42Wpqn4jP9dkxHxW2F5EZtURzUz4Kb5K66fz_TDBj0gw8bJ4i4chlWTfmBs6wLEWBB',
     // The force.com API version to use. Default can be overriden in login()
         apiVersion = 'v32.0',
@@ -29,6 +30,7 @@ var force = (function () {
 
     // if page URL is http://localhost:3000/myapp/index.html, oauthCallbackURL is http://localhost:3000/myapp/oauthcallback.html
         oauthCallbackURL = baseURL + '/oauthcallback.html',
+    //  oauthCallbackURL = https://awesome-conference-new-9999.herokuapp.com/oauthcallback.html       
 
     // Only required when using REST APIs in an app hosted on your own server to avoid cross domain policy issues
         proxyURL = baseURL,
@@ -293,8 +295,9 @@ var force = (function () {
         loginSuccessHandler = successHandler;
         loginErrorHandler = errorHandler;
         console.log('loginWindowURL:'+loginWindowURL)
-//         loginWindowURL = 'https://zangwenk-lightning-dev-ed.my.salesforce.com/'+'services/oauth2/authorize?'+
-//                          'client_id=3MVG9n_HvETGhr3Culk42Wpqn4jP9dkxHxW2F5EZtURzUz4Kb5K66fz_TDBj0gw8bJ4i4chlWTfmBs6wLEWBB'+
+//         loginWindowURL = 'https://zwk-playful-moose-388230-dev-ed.my.salesforce.com/'+
+//         　　　　　　　　　 'services/oauth2/authorize?'+
+//                          'client_id=3MVG9G9pzCUSkzZtImRejMUqCEcHwnMhr22SJs69sUeud2Z6Vx9NI8OsUeDkbJ0IS9mFBLyHOyA=='+
 //                          '&redirect_uri=https://awesome-conference-new-9999.herokuapp.com/oauthcallback.html&response_type=token'
         window.open(loginWindowURL, '_blank', 'location=no');
         console.log('<--method:['+'loginWithBrowser'+']:end')
